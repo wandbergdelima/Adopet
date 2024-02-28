@@ -1,10 +1,8 @@
 package br.com.alura.domain;
 
+import java.math.BigDecimal;
+
 public class Pet {
-
-    public Pet() {
-
-    }
 
     public Pet(String tipo, String nome, String raca, int idade, String cor, Float peso) {
         this.tipo = tipo;

@@ -3,10 +3,7 @@ package br.com.alura.service;
 import br.com.alura.client.ClientHttpConfiguration;
 import br.com.alura.domain.Abrigo;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.net.http.HttpResponse;
@@ -29,13 +26,13 @@ public class AbrigoService {
         Abrigo[] abrigos = new ObjectMapper().readValue(responseBody, Abrigo[].class);
         List<Abrigo> abrigoList = Arrays.stream(abrigos).toList();
         if (abrigoList.isEmpty()) {
-            System.out.println("Não há abrigos cadastrados");
+            System.out.println("Não há Abrigos cadastrados:");
         } else {
             mostrarAbrigos(abrigoList);
         }
     }
 
-    private void mostrarAbrigos(List<Abrigo> abrigos) {
+    private void mostrarAbrigos(@NotNull List<Abrigo> abrigos) {
         System.out.println("Abrigos cadastrados:");
         for (Abrigo abrigo : abrigos) {
             long id = abrigo.getId();
